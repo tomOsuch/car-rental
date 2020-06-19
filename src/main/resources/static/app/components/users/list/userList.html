@@ -1,0 +1,65 @@
+<div class="container-fluid col-11">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="form">
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <input class="form-control" type="text" id="searchInput" placeholder="Search..">
+                    <button class="btn btn-primary" ng-click="ctrl.search(lastName)">Szukaj</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">id</th>
+                        <th scope="col">Imię</th>
+                        <th scope="col">Nazwisko</th>
+                        <th scope="col">Data urodzenia</th>
+                        <th scope="col">Pesel</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Numer Telefonu</th>
+                        <th scope="col">Adres</th>
+                        <th scope="col">Kod pocztowy</th>
+                        <th scope="col">Miasto</th>
+                    </tr>
+                </thead>
+                <tbody id="myTable">
+                    <tr ng-repeat="user in ctrl.users">
+                        <th scope="row">{{user.id}}</th>
+                        <td>{{user.firstName}}</td>
+                        <td>{{user.lastName}}</td>
+                        <td>{{user.birthDate}}</td>
+                        <td>{{user.pesel}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phoneNumber}}</td>
+                        <td>{{user.address}}</td>
+                        <td>{{user.zipCode}}</td>
+                        <td>{{user.city}}</td>
+                        <td class="text-center">
+                            <button class="btn btn-sm btn-primary" title="Edytuj">
+                                <a ng-href="#!user-asset/{{user.id}}" class="text-dark">
+                                    <i class="fas fa-wrench"></i>
+                                </a>
+                            </button>
+                            <button class="btn btn-sm btn-danger" title="Usuń">
+                                <i class="fas fa-user-minus"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <a class="btn btn-primary mb-3" ng-href="#!user-add">Dodaj klienta</a>
+    </div>
+</div>
+<script src="../js/list.js"></script>

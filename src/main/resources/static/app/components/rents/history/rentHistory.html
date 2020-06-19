@@ -1,0 +1,117 @@
+<div class="container-fluid col-11">
+    <div class="row">
+        <div class="col-12">
+            <div class="text-center">
+                <p>Id: {{ctrl.rent.id}}</p>
+                <p>Marka: {{ctrl.rent.rentName}}</p>
+                <p>Model: {{ctrl.rent.rentModel}}</p>
+                <p>Nr. Rejestracyjny: {{ctrl.rent.rejNumber}}</p>
+                <p>Nr. VIN: {{ctrl.rent.vinNumber}}</p>
+                <p>Nr. Seryjny: {{ctrl.rent.serialNumber}}</p>
+                <p>Kategoria: {{ctrl.rent.category}}</p>
+                <p>Opis: {{ctrl.rent.description}}</p>
+                <p ng-if="!ctrl.assigned" class="text-success">Dostępny</p>
+                <p ng-if="ctrl.assigned" class="text-danger">Wypożyczone</p>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="ctrl.msg">
+        <div class="mx-auto">
+            <p class="text-danger">{{ctrl.msg}}</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="form">
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" id="searchInput" placeholder="Nazwisko" ng-model="lastName">
+                    <button class="btn btn-primary mx-1" ng-click="ctrl.search(lastName)">
+                        Szukaj użytkownika
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-if="ctrl.users">
+        <div class="col-12">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Imię</th>
+                    <th scope="col">Nazwisko</th>
+                    <th scope="col">Data urodzenia</th>
+                    <th scope="col">Pesel</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Numer Telefonu</th>
+                    <th scope="col">Adres</th>
+                    <th scope="col">Kod pocztowy</th>
+                    <th scope="col">Miasto</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="user in ctrl.users">
+                    <th scope="row">{{user.id}}</th>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.lastName}}</td>
+                    <td>{{user.birthDate}}</td>
+                    <td>{{user.pesel}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phoneNumber}}</td>
+                    <td>{{user.address}}</td>
+                    <td>{{user.zipCode}}</td>
+                    <td>{{user.city}}</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-primary"
+                                ng-click="ctrl.rentToUser(user)"
+                                ng-disabled="ctrl.assigned"
+                                title="{{ctrl.assigned ? 'Samochód jest aktualnie wypożyczony' : 'Przypisz'}}">
+                            Przypisz
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="mx-auto">
+            <h2 ng-if="ctrl.assignments.length">Histria wypożyczenia</h2>
+            <h2 ng-if="!ctrl.assignments.length">Brak wypożyczenia</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-hover" ng-if="ctrl.assignments.length">
+                <thead>
+                <tr>
+                    <th scope="col">Imię i nazwisko</th>
+                    <th scope="col">Pesel</th>
+                    <th scope="col">Data wypożyczenia</th>
+                    <th scope="col">Data zwrotu</th>
+                    <th scope="col" class="text-center">Akcja</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="assignment in ctrl.assignments">
+                    <td>{{assignment.firstName + ' ' + assignment.lastName}}</td>
+                    <td>{{assignment.pesel}}</td>
+                    <td>{{assignment.start | date:'yyyy-MM-dd HH:mm'}}</td>
+                    <td>{{assignment.end | date:'yyyy-MM-dd HH:mm'}}</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-warning text-white" title="Zwróć"
+                                ng-if="!assignment.end" ng-click="ctrl.finishAssignment(assignment)">
+                            <i class="fas fa-undo-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

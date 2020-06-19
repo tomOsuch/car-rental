@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="row">
+        <div class="mx-auto">
+            <h2 ng-if="ctrl.user.id">Edycja klienta</h2>
+            <h2 ng-if="!ctrl.user.id">Dodaj klienta</h2>
+        </div>
+    </div>
+    <div class="row" ng-if="ctrl.msg">
+        <div class="mx-auto">
+            <p class="text-danger">{{ctrl.msg}}</p>
+        </div>
+    </div>
+    <div class="container">
+        <form class="mx-auto">
+            <p>Id: {{ctrl.user.id}}</p>
+            <div class="row form-group">
+                <div class="col">
+                    <label for="firstNameInput">Imię</label>
+                    <input type="text" class="form-control" id="firstNameInput" placeholder="Imię" ng-model="ctrl.user.firstName">
+                </div>
+                <div class="col">
+                    <label for="lastNameImput">Nazwisko</label>
+                    <input  type="text" class="form-control" id="lastNameImput" placeholder="Nazwisko" ng-model="ctrl.user.lastName">
+                </div>
+                <div class="col">
+                    <label for="birthDateInput">Data urodzenia</label>
+                    <input type="date" class="form-control" id="birthDateInput" placeholder="Data urodzenia" ng-model="ctrl.user.birthDate">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col">
+                    <label for="peselInput">Pesel</label>
+                    <input type="text" class="form-control" id="peselInput" placeholder="Pesel" ng-model="ctrl.user.pesel">
+                </div>
+                <div class="col">
+                    <label for="emailImput">Email</label>
+                    <input  type="text" class="form-control" id="emailImput" placeholder="Email" ng-model="ctrl.user.email">
+                </div>
+                <div class="col">
+                    <label for="phoneNumerInput">Numer telefonu</label>
+                    <input type="text" class="form-control" id="phoneNumerInput" placeholder="Numer telefonu" ng-model="ctrl.user.phoneNumber">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col">
+                    <label for="addressInput">Adres</label>
+                    <input type="text" class="form-control" id="addressInput" placeholder="Adres" ng-model="ctrl.user.address">
+                </div>
+                <div class="col">
+                    <label for="zipCodeImput">Kod pocztowy</label>
+                    <input  type="text" class="form-control" id="zipCodeImput" placeholder="Kod pocztowy" ng-model="ctrl.user.zipCode">
+                </div>
+                <div class="col">
+                    <label for="cityInput">Miasto</label>
+                    <input type="text" class="form-control" id="cityInput" placeholder="Miasto" ng-model="ctrl.user.city">
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <button ng-if="!ctrl.user.id" type="submit" class="btn btn-primary" ng-click="ctrl.saveUser()">Zapisz</button>
+                <button ng-if="ctrl.user.id" type="submit" class="btn btn-primary" ng-click="ctrl.updateUser()">Aktualizuj</button>
+
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="mx-auto">
+            <h2 ng-if="ctrl.rent.id">Edycja zasobu</h2>
+            <h2 ng-if="!ctrl.rent.id">Nowy zasób</h2>
+        </div>
+    </div>
+    <div class="row" ng-if="ctrl.msg">
+        <div class="mx-auto">
+            <p class="text-danger">{{ctrl.msg}}</p>
+        </div>
+    </div>
+    <div class="container">
+        <form class="mx-auto">
+            <p>Id: {{ctrl.rent.id}}</p>
+            <div class="row form-group">
+                <div class="col">
+                    <label for="nameInput">Marka</label>
+                    <input type="text" class="form-control" id="nameInput" placeholder="Marka" ng-model="ctrl.rent.rentName">
+                </div>
+                <div class="col">
+                    <label for="modelImput">Model</label>
+                    <input type="text" class="form-control" id="modelImput" placeholder="Model" ng-model="ctrl.rent.rentModel">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col">
+                    <label for="rejNumberInput">Numer rejestracyjny</label>
+                    <input type="text" class="form-control" id="rejNumberInput" placeholder="Numer rejestracyjny" ng-model="ctrl.rent.rejNumber">
+                </div>
+                <div class="col">
+                    <label for="vinNumerInput">Numer VIN</label>
+                    <input type="text" class="form-control" id="vinNumerInput" placeholder="Numer VIN" ng-model="ctrl.rent.vinNumber">
+                </div>
+            </div>
+            <div class="row form-group">
+                <div class="col">
+                    <label for="serialNumberInput">Numer Seryjny</label>
+                    <input type="text" class="form-control" id="serialNumberInput" placeholder="Numer Seryjny" ng-model="ctrl.rent.serialNumber">
+                </div>
+                <div class="col">
+                    <label for="categorySelect">kategoria</label>
+                    <select class="form-control" id="categorySelect"ng-model="ctrl.rent.category">
+                        <option ng-repeat="category in ctrl.categoryName" ng-selected="category === ctrl.rent.category">{{category}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <button type="submit" class="btn btn-primary" ng-if="!ctrl.rent.id" ng-click="ctrl.save()">Dodaj</button>
+                <button type="submit" class="btn btn-primary" ng-if="ctrl.rent.id" ng-click="ctrl.update()">Zapisz</button>
+                <button type="submit" class="btn btn-primary" ng-if="ctrl.rent.id">
+                    <a ng-href="#!rent-history/{{ctrl.rent.id}}" class="text-white">
+                        Historia wynajmu
+                    </a>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
