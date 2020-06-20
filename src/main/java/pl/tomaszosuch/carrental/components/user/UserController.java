@@ -19,6 +19,13 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<UserDto> findById(@PathVariable Long id){
+        return userService.findById(id)
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @GetMapping("")
     public List<UserDto> findAll(@RequestParam(required = false) String lastName) {
         if(lastName != null)
@@ -38,5 +45,13 @@ public class UserController {
                 .buildAndExpand(savedUser.getId())
                 .toUri();
         return ResponseEntity.created(location).body(savedUser);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<UserDto> update(@PathVariable Long id, @RequestBody UserDto user){
+        if (!id.equals(user.getId()))
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Aktualizowany użytkownik musi mieć zgodny nr id");
+        UserDto updateUser = userService.update(user);
+        return ResponseEntity.ok(updateUser);
     }
 }
