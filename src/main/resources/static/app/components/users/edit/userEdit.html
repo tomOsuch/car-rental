@@ -55,10 +55,13 @@
                     <input type="text" class="form-control" id="cityInput" placeholder="Miasto" ng-model="ctrl.user.city">
                 </div>
             </div>
-            <div class="form-group mb-3">
-                <button ng-if="!ctrl.user.id" type="submit" class="btn btn-primary" ng-click="ctrl.saveUser()">Zapisz</button>
-                <button ng-if="ctrl.user.id" type="submit" class="btn btn-primary" ng-click="ctrl.updateUser()">Aktualizuj</button>
-
+            <div class="row form-group">
+                <div class="col">
+                    <button ng-if="!ctrl.user.id" type="submit" class="btn btn-primary" ng-click="ctrl.saveUser()">Zapisz</button>
+                </div>
+                <div class="col">
+                    <button ng-if="ctrl.user.id" type="submit" class="btn btn-primary" ng-click="ctrl.updateUser()">Aktualizuj</button>
+                </div>
             </div>
         </form>
     </div>
