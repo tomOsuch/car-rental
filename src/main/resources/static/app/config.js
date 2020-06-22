@@ -22,8 +22,8 @@ angular.module('app')
             controllerAs: 'ctrl'
         })
         .when('/rents', {
-            templateUrl: 'app/components/users/rents/userRents.html',
-            controller: 'UserRentsController',
+            templateUrl: 'app/components/rents/list/rentList.html',
+            controller: 'RentListController',
             controllerAs: 'ctrl'
         })
         .when('/rent-edit/:rentId', {
@@ -32,7 +32,7 @@ angular.module('app')
             controllerAs: 'ctrl'
         })
         .when('/rent-add', {
-            ttemplateUrl: 'app/components/rents/edit/rentEdit.html',
+            templateUrl: 'app/components/rents/edit/rentEdit.html',
             controller: 'RentEditController',
             controllerAs: 'ctrl'
         })

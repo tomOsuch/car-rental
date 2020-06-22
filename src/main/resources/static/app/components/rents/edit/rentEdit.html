@@ -16,11 +16,11 @@
             <div class="row form-group">
                 <div class="col">
                     <label for="nameInput">Marka</label>
-                    <input type="text" class="form-control" id="nameInput" placeholder="Marka" ng-model="ctrl.rent.rentName">
+                    <input type="text" class="form-control" id="nameInput" placeholder="Marka" ng-model="ctrl.rent.carBrand">
                 </div>
                 <div class="col">
-                    <label for="modelImput">Model</label>
-                    <input type="text" class="form-control" id="modelImput" placeholder="Model" ng-model="ctrl.rent.rentModel">
+                    <label for="modelInput">Model</label>
+                    <input type="text" class="form-control" id="modelInput" placeholder="Model" ng-model="ctrl.rent.carModel">
                 </div>
             </div>
             <div class="row form-group">
@@ -41,7 +41,7 @@
                 <div class="col">
                     <label for="categorySelect">kategoria</label>
                     <select class="form-control" id="categorySelect"ng-model="ctrl.rent.category">
-                        <option ng-repeat="category in ctrl.categoryName" ng-selected="category === ctrl.rent.category">{{category}}</option>
+                        <option ng-repeat="category in ctrl.categoryNames" ng-selected="category === ctrl.rent.category">{{category}}</option>
                     </select>
                 </div>
             </div>

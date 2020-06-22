@@ -3,13 +3,13 @@
         <div class="col-12">
             <div class="text-center">
                 <p>Id: {{ctrl.rent.id}}</p>
-                <p>Marka: {{ctrl.rent.rentName}}</p>
-                <p>Model: {{ctrl.rent.rentModel}}</p>
+                <p>Marka: {{ctrl.rent.carBrand}}</p>
+                <p>Model: {{ctrl.rent.carModel}}</p>
                 <p>Nr. Rejestracyjny: {{ctrl.rent.rejNumber}}</p>
                 <p>Nr. VIN: {{ctrl.rent.vinNumber}}</p>
                 <p>Nr. Seryjny: {{ctrl.rent.serialNumber}}</p>
                 <p>Kategoria: {{ctrl.rent.category}}</p>
-                <p>Opis: {{ctrl.rent.description}}</p>
+                <p>Opis: {{ctrl.category.description}}</p>
                 <p ng-if="!ctrl.assigned" class="text-success">Dostępny</p>
                 <p ng-if="ctrl.assigned" class="text-danger">Wypożyczone</p>
             </div>

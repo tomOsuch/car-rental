@@ -8,7 +8,7 @@
                             <i class="fas fa-search"></i>
                         </div>
                     </div>
-                    <input type="text" class="form-control" id="searchInput" placeholder="Nazwa lub Numer seryiny" ng-model="text">
+                    <input type="text" class="form-control" id="searchInput" placeholder="Nr. rejestracyjny lub Nr. VIN" ng-model="text">
                     <button class="btn btn-primary mx-1" ng-click="ctrl.search(text)">Szukaj</button>
                 </div>
             </div>
@@ -30,22 +30,22 @@
                     </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="rent in crrl.rents">
+                <tr ng-repeat="rent in ctrl.rents">
                     <th scope="row">{{rent.id}}</th>
-                    <td>{{rent.rentName}}</td>
-                    <td>{{rent.rentModel}}</td>
+                    <td>{{rent.carBrand}}</td>
+                    <td>{{rent.carModel}}</td>
                     <td>{{rent.rejNumber}}</td>
                     <td>{{rent.vinNumber}}</td>
                     <td>{{rent.serialNumber}}</td>
                     <td>{{rent.category}}</td>
                     <td>
-                        <button class="btn btn-sm btn-primary" title="Edytuj">
-                            <a ng-href="#!asset-edit/{{asset.id}}" class="text-white">
+                        <button class="btn btn-sm btn-success" title="Edytuj">
+                            <a ng-href="#!rent-edit/{{rent.id}}" class="text-white">
                                 <i class="fas fa-edit"></i>
                             </a>
                         </button>
                         <button class="btn btn-sm btn-warning" title="Historia wypożyczeń">
-                            <a ng-href="#!asset-history/{{asset.id}}" class="text-white">
+                            <a ng-href="#!rent-history/{{rent.id}}" class="text-white">
                                 <i class="fas fa-history"></i>
                             </a>
                         </button>
