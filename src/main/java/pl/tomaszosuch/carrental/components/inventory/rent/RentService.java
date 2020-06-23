@@ -56,4 +56,13 @@ public class RentService {
         Rent savedRent = rentRepository.save(rentEntity);
         return rentMapper.toDto(savedRent);
     }
+
+    List<RentAssignmentDto> getRentAssignment(Long id){
+        return rentRepository.findById(id)
+                .map(Rent::getAssignments)
+                .orElseThrow(RentNotFoundException::new)
+                .stream()
+                .map(RentAssignmentMapper::toDto)
+                .collect(Collectors.toList());
+    }
 }

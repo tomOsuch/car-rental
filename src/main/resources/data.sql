@@ -10,3 +10,7 @@ insert into rent(id, car_brand, car_model, rej_number, vin_number, serial_number
 (1, 'Opel', 'Astra', 'WE133ME', 'MG14NO09876801','12341', 1),
 (2, 'Opel', 'Astra', 'WE133FN', 'MG147O09876801','12342', 2),
 (3, 'Skoda', 'Octavia', 'WE177ME', 'MG14KO09876801','12343', 1);
+
+insert  into assignment(id, start, end, rent_id, user_id) values
+(1, '2017-10-08 15:00:00', '2018-10-08 15:00:00', 1, 1),
+  (2, '2018-10-09 12:00:00', null, 3, 1);

@@ -1,5 +1,6 @@
 package pl.tomaszosuch.carrental.components.assignment;
 
+import pl.tomaszosuch.carrental.components.inventory.rent.Rent;
 import pl.tomaszosuch.carrental.components.user.User;
 
 import javax.persistence.*;
@@ -17,6 +18,9 @@ public class Assignment {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+    @ManyToOne
+    @JoinColumn(name = "rent_id")
+    private Rent rent;
 
     public Long getId() {
         return id;
@@ -48,6 +52,14 @@ public class Assignment {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Rent getRent() {
+        return rent;
+    }
+
+    public void setRent(Rent rent) {
+        this.rent = rent;
     }
 
     @Override

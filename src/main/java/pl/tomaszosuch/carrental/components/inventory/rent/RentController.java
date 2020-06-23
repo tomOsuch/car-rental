@@ -54,4 +54,10 @@ public class RentController {
         RentDto updateRent = rentService.update(rent);
         return  ResponseEntity.ok(updateRent);
     }
+
+    @GetMapping("/{id}/assignments")
+    public List<RentAssignmentDto> getRentAssignments(@PathVariable Long id){
+        return  rentService.getRentAssignment(id);
+    }
+
 }

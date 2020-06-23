@@ -22,17 +22,19 @@
                         <th scope="col">Model</th>
                         <th scope="col">Nr. rejestracji</th>
                         <th scope="col">Nr. VIN</th>
+                        <th scope="col">Nr. seryjny</th>
                         <th scope="col">Data wypożyczenia</th>
                         <th scope="col">Data zwrotu</th>
                         <th scope="col" class="text-center">Akcja</th>
                     </tr>
                 </thead>
                 <tbody id="myTable">
-                <tr>
-                    <td>{{assignment.rentName}}</td>
-                    <td>{{assignment.rentModel}}</td>
-                    <td>{{assignemnt.rejNumber}}</td>
+                <tr ng-repeat="assignment in ctrl.assignments">
+                    <td>{{assignment.carBrand}}</td>
+                    <td>{{assignment.carModel}}</td>
+                    <td>{{assignment.rejNumber}}</td>
                     <td>{{assignment.vinNumber}}</td>
+                    <td>{{assignment.serialNumber}}</td>
                     <td>{{assignment.start | date: 'yyyy-MM-dd HH:mm'}}</td>
                     <td>{{assignment.end | date: 'yyyy-MM-dd HH:mm'}}</td>
                     <td class="text-center">

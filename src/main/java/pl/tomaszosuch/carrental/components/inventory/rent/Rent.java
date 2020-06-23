@@ -1,8 +1,11 @@
 package pl.tomaszosuch.carrental.components.inventory.rent;
 
+import pl.tomaszosuch.carrental.components.assignment.Assignment;
 import pl.tomaszosuch.carrental.components.inventory.category.Category;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -25,6 +28,8 @@ public class Rent {
     @ManyToOne
     @JoinColumn(name = "category_id")
     private Category category;
+    @OneToMany(mappedBy = "rent")
+    private List<Assignment> assignments = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -80,6 +85,14 @@ public class Rent {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public List<Assignment> getAssignments() {
+        return assignments;
+    }
+
+    public void setAssignments(List<Assignment> assignments) {
+        this.assignments = assignments;
     }
 
     @Override
