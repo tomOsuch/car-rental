@@ -19,11 +19,11 @@ public class Rent {
     private String carBrand;
     @Column(name = "car_model")
     private String carModel;
-    @Column(name = "rej_number")
+    @Column(name = "rej_number", unique = true)
     private String rejNumber;
-    @Column(name = "vin_number")
+    @Column(name = "vin_number", unique = true)
     private String vinNumber;
-    @Column(name = "serial_number")
+    @Column(name = "serial_number", unique = true)
     private String serialNumber;
     @ManyToOne
     @JoinColumn(name = "category_id")

@@ -3,9 +3,18 @@ angular.module('app')
                                                RentService,
                                                Assignment, AssignmentService, AssignmentEndService,
                                                UserService) {
+
     const vm = this;
+    const vn = this;
     const rentId = $routeParams.rentId;
     vm.rent = RentService.get(rentId);
+
+    vn.users = UserService.getAll();
+
+    vn.search = lastName => {
+        vn.users = UserService.getAll({lastName});
+    };
+
     const refreshData = () => {
         vm.assigned = false;
         vm.assignments = RentService.getAssignments(rentId);
